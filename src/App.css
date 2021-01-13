@@ -22,13 +22,31 @@
   min-height: 52.84vh;
 }
 
-.figure-size {
-  font-size: 1.5rem;
+.hide {
+  display: none;
+}
+
+.searchbox-position {
+  padding: 0rem 5.75rem;
+}
+
+.quote-size {
+  font-size: 2rem;
 }
 
 .footer{
   background-color: #5350ffcc;
   margin: 0px auto;
   padding: 8.45vh 0vh;
+}
+
+.btn-third-dimension {
+  box-shadow: 3px 3px 0px 3px #5350ffcc;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btn-third-dimension:active {
+  box-shadow: 0 0 0 #5350ffcc, inset 4px 4px 4px #5350ffcc;
+  transform: translate(6px, 6px);
 }
 

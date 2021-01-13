@@ -7,7 +7,7 @@ function Header(props) {
             <div className="container">
                 <div className="row row-header">
                     <div className="col-12">
-                        <h1>Stock Price Tracker</h1>
+                        <h1>US Stock Price Tracker</h1>
                     </div>
                 </div>
             </div>

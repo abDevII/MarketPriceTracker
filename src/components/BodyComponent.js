@@ -17,6 +17,8 @@ const Body = () => {
 
     const [isPageLoading, setIsPageLoading] = useState(true);
     const [stockExchangeData, setStockExchangeData] = useState([]);
+    const [isRequestSuccessful, setIsRequestSuccessful] = useState(true);
+    const [dots, setDots] = useState(1);
     const [isInputFocused, setIsInputFocused] = useState(false);
     const [isSearching, setIsSearching] = useState(false);
     const [stock, setStock] = useState('');
@@ -26,8 +28,9 @@ const Body = () => {
     
     const updateStockExchangeData = () => {
         finnhubClient.stockSymbols('US', (error, data, response) => {
-            if (error) { 
-                console.error(error); 
+            if (response.statusCode === 429) { 
+                setIsRequestSuccessful(false);
+                setIsPageLoading(false);
             }
             else {
                 setStockExchangeData(data);
@@ -66,8 +69,10 @@ const Body = () => {
         if (stock !== '') {
 
             finnhubClient.quote(stock, (error, data, response) => { 
-                if (error) { 
-                    console.error(error); 
+                if (response.statusCode === 429) { 
+                    setIsRequestSuccessful(false);
+                    setIsLoading(false);
+                    setIsSearching(false);
                 }
                 else if (quote === null) {
                     setQuote(data.c);
@@ -96,6 +101,19 @@ const Body = () => {
     }, []);
 
     useEffect(() => {    
+        // Add up to 3 dots to the message while loading Stock Exchange data
+        const intervalId = setInterval(() => {
+            setDots(dots === 3 ? 0 : dots + 1);
+        }, 300);
+
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, [dots]);
+
+    let dotsAnimation = dots === 0 ? '' : ' .'.repeat(dots);
+
+    useEffect(() => {    
         // Get the real-time stock quote every 3 seconds
         const intervalId = setInterval(() => {
             renderStockQuote(stock);
@@ -109,10 +127,15 @@ const Body = () => {
     
     return (
         <div className="container">
-            <div className={`row row-content ${isPageLoading ? 'd-flex align-items-center' : 'hide'}`}>
-                <Loading isPageLoading={isPageLoading} />
+            <div className={`row row-content ${isRequestSuccessful ? 'hide' : 'd-flex align-items-center'}`}>
+                <div className="col-12 text-center text-primary">
+                    I am sorry, something went wrong, there are maybe too much users, please refresh the page or come back later . . .
+                </div>
             </div>
-            <div className={`row row-content ${isPageLoading ? 'hide' : ''}`}>
+            <div className={`row row-content ${isPageLoading ? 'd-flex align-items-center' : 'hide'}`}>
+                <Loading isPageLoading={isPageLoading} dotsAnimation={dotsAnimation}/>
+            </div>
+            <div className={`row row-content ${(isPageLoading || !isRequestSuccessful) ? 'hide' : ''}`}>
                 <div  
                     className="col-8 offset-2 searchbox-position"
                     onFocus={handleOnFocus}
@@ -140,7 +163,10 @@ const Body = () => {
                     />
                 </div>
                 <div className={`col-12 text-center ${color}`}>
-                    <Loading isLoading={isLoading} />
+                    <Loading 
+                        isLoading={isLoading} 
+                        className={`${(isLoading && isSearching) ? 'hide' : ''}`}
+                    />
                     <NumberFormat 
                         value={quote} 
                         displayType={'text'} 

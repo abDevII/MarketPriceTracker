@@ -45,7 +45,7 @@
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.btn-third-dimension:active {
+.btn-third-dimension:hover {
   box-shadow: 0 0 0 #5350ffcc, inset 4px 4px 4px #5350ffcc;
   transform: translate(6px, 6px);
 }

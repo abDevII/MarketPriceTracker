@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
-import Header from './HeaderComponent';
-import Body from './BodyComponent';
-import Footer from './FooterComponent';
+import { Header } from './HeaderComponent';
+import { Body } from './BodyComponent';
+import { Footer } from './FooterComponent';
 
-class Main extends Component {
-
+export class Main extends Component {
     render() {
-
         return (
-            <div className="view">
+            <React.Fragment>
                 <Header />
                 <Body />
                 <Footer />
-            </div>
+            </React.Fragment>
         );
     }
 }
-
-export default Main;

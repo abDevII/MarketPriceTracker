@@ -1,25 +1,34 @@
-.view {
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
   height: 100vh;
 }
 
 .jumbotron {
-  padding: 9.2vh 3.9vh;
-  margin: 0px auto;
-  background: #5350ffcc ;
+  height: 24%;
+  padding: 4.35% 0;
+  margin: 0;
+  background: linear-gradient(to bottom right, #dc50ffcc, #5350ffcc);
   color: floralwhite;
 }
 
-.row-header{
-  margin: 0px auto;
-  padding: 0px auto;
-  text-align: center;
+.font-header {
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+}
+
+.container {
+  height: 52%;
 }
 
 .row-content {
-  margin: 0px auto;
-  padding: 6.6vh 0vh;
-  border-bottom: 1px ridge;
-  min-height: 52.84vh;
+  height: 100%;
+  margin: 0 auto;
+  padding: 4.5% 0;
 }
 
 .hide {
@@ -30,23 +39,71 @@
   padding: 0rem 5.75rem;
 }
 
+.title-size {
+  font-size: 1rem;
+}
+
+.percentage-size {
+  font-size: 1rem;
+}
+
 .quote-size {
   font-size: 2rem;
 }
 
 .footer{
-  background-color: #5350ffcc;
-  margin: 0px auto;
-  padding: 8.45vh 0vh;
+  height: 24%;
+  background: linear-gradient(to bottom right, #dc50ffcc, #5350ffcc);
+  margin: 0 auto;
+  padding: 4.2% 0;
 }
 
 .btn-third-dimension {
-  box-shadow: 3px 3px 0px 3px #5350ffcc;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 2px 2px 0 2px #5350ffcc;
+  transition: transform 0.2s ease-in;
 }
 
 .btn-third-dimension:hover {
-  box-shadow: 0 0 0 #5350ffcc, inset 4px 4px 4px #5350ffcc;
-  transform: translate(6px, 6px);
+  box-shadow: 0 0 0 #5350ffcc, inset 5px 5px 5px #5350ffcc;
+  transform: translate(4px, 4px);
 }
 
+.my-style {
+  color: #5350ffcc;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .page-loading-sentence-position {
+    margin-left: 3.5rem;
+  }
+}
+
+/* @media (min-width: 576px) and (max-width: 767px) {
+  .page-loading-sentence-position {
+    font-size: 0.75rem;
+  }
+} */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .searchbox-position {
+    padding: 0rem 7rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .searchbox-position {
+    padding: 0rem 4.5rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .searchbox-position {
+    padding: 0rem 2rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .searchbox-position {
+    padding: 0rem;
+  }
+}

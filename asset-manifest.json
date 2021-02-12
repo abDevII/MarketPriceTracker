@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/stock-price-tracker/static/css/main.fb0677ed.chunk.css",
+    "main.js": "/stock-price-tracker/static/js/main.ea880d90.chunk.js",
+    "main.js.map": "/stock-price-tracker/static/js/main.ea880d90.chunk.js.map",
+    "runtime-main.js": "/stock-price-tracker/static/js/runtime-main.eedafa45.js",
+    "runtime-main.js.map": "/stock-price-tracker/static/js/runtime-main.eedafa45.js.map",
+    "static/css/2.5ea0b1c5.chunk.css": "/stock-price-tracker/static/css/2.5ea0b1c5.chunk.css",
+    "static/js/2.8b6de653.chunk.js": "/stock-price-tracker/static/js/2.8b6de653.chunk.js",
+    "static/js/2.8b6de653.chunk.js.map": "/stock-price-tracker/static/js/2.8b6de653.chunk.js.map",
+    "static/js/3.d46f57e6.chunk.js": "/stock-price-tracker/static/js/3.d46f57e6.chunk.js",
+    "static/js/3.d46f57e6.chunk.js.map": "/stock-price-tracker/static/js/3.d46f57e6.chunk.js.map",
+    "index.html": "/stock-price-tracker/index.html",
+    "static/css/2.5ea0b1c5.chunk.css.map": "/stock-price-tracker/static/css/2.5ea0b1c5.chunk.css.map",
+    "static/css/main.fb0677ed.chunk.css.map": "/stock-price-tracker/static/css/main.fb0677ed.chunk.css.map",
+    "static/js/2.8b6de653.chunk.js.LICENSE.txt": "/stock-price-tracker/static/js/2.8b6de653.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/stock-price-tracker/static/media/fontawesome-webfont.f691f37e.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eedafa45.js",
+    "static/css/2.5ea0b1c5.chunk.css",
+    "static/js/2.8b6de653.chunk.js",
+    "static/css/main.fb0677ed.chunk.css",
+    "static/js/main.ea880d90.chunk.js"
+  ]
+}

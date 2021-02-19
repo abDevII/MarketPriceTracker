@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
+import { finnhubClient } from '../FinnhubAPI';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
+import { onKeyDown, onKeyUp } from '../utilities/utilities.js'
 import { StockLoader } from './StockLoaderComponent';
 import { Error } from './ErrorComponent';
-
-///////////////////////////////////
-// Requirements to use Finnhub API 
-// Finnhub API allows us to get real-time quote data for US stocks
-const finnhub = require('finnhub');
- 
-const api_key = finnhub.ApiClient.instance.authentications['api_key'];
-// Hide the API key
-api_key.apiKey = process.env.REACT_APP_FINNHUB_API_KEY;
-const finnhubClient = new finnhub.DefaultApi();
 
 export class SearchEngine extends Component {
 
@@ -19,19 +11,20 @@ export class SearchEngine extends Component {
         super(props);
 
         this.state = {
-            isRequestSuccessful: true,
-            isInputFocused: false,
-            isSearching: false,
             activeResult: 0,
-            maxResults: 3,
-            filteredResults: [],
-            stock: '',
-            isLoading: false,
+            delta: null,
             description: '',
-            percentage: null,
+            filteredResults: [],
             initialQuote: null,
+            isInputFocused: false,
+            isLoading: false,
+            isRequestSuccessful: true,
+            isSearching: false,
+            maxResults: 3,
+            percentage: null,
             quote: null,
             quoteColor: 'text-primary',
+            stock: ''  
         };
 
         this.handleOnFocus = this.handleOnFocus.bind(this);
@@ -42,12 +35,15 @@ export class SearchEngine extends Component {
         this.renderStockQuote = this.renderStockQuote.bind(this);
     }    
 
-    handleOnFocus(event) {
-        event.target.placeholder = '';
+    handleOnFocus() {
         this.setState({ isInputFocused: true });
+
+        document.getElementsByTagName('input')[0].classList.add('placeholder-color');
     }
 
-    handleOnBlur(event) {  
+    handleOnBlur(event) {          
+        let input = document.getElementsByTagName('input')[0];
+
         if (!event.currentTarget.contains(event.relatedTarget)) {
             if (this.state.isInputFocused) {  
                 this.setState({
@@ -55,6 +51,7 @@ export class SearchEngine extends Component {
                     isSearching: false,
                     activeResult: 0
                 });
+                if (input.value === '') input.classList.remove('placeholder-color');
             }
         }
     }
@@ -70,23 +67,11 @@ export class SearchEngine extends Component {
         if (this.state.isSearching) {
             if (event.keyCode === 40) {
                 if (this.state.activeResult < this.state.maxResults - 1) this.setState({ activeResult: this.state.activeResult + 1 });
-                if (this.state.activeResult === 0) {
-                    document.querySelector(`[title='${this.state.filteredResults[this.state.activeResult].description}']`).parentNode.classList.add('my-style');
-                }
-                else {
-                    document.querySelector(`[title='${this.state.filteredResults[this.state.activeResult].description}']`).parentNode.classList.add('my-style');
-                    document.querySelector(`[title='${this.state.filteredResults[this.state.activeResult - 1].description}']`).parentNode.classList.remove('my-style');
-                }
-            }
+                onKeyDown(this.state.activeResult, this.state.filteredResults);
+            }         
             else if (event.keyCode === 38) {
-                if (this.state.activeResult === 0) {
-                    document.querySelector(`[title='${this.state.filteredResults[this.state.activeResult].description}']`).parentNode.classList.remove('my-style');
-                }
-                else {
-                    this.setState({ activeResult: this.state.activeResult - 1 });
-                    document.querySelector(`[title='${this.state.filteredResults[this.state.activeResult - 1].description}']`).parentNode.classList.add('my-style');
-                    document.querySelector(`[title='${this.state.filteredResults[this.state.activeResult].description}']`).parentNode.classList.remove('my-style');
-                }
+                if (this.state.activeResult !== 0) this.setState({ activeResult: this.state.activeResult - 1 });
+                onKeyUp(this.state.activeResult, this.state.filteredResults);               
             }
             else if (event.keyCode === 13) { 
                 event.target.blur();
@@ -94,6 +79,7 @@ export class SearchEngine extends Component {
                     stock: this.state.activeResult > 0 ? this.state.filteredResults[this.state.activeResult - 1].symbol : this.state.filteredResults[this.state.activeResult].symbol,
                     isLoading: true,
                     description: this.state.activeResult > 0 ? this.state.filteredResults[this.state.activeResult - 1].description : this.state.filteredResults[this.state.activeResult].description,
+                    delta: null,
                     percentage: null,
                     initialQuote: null,
                     quote: null,
@@ -111,6 +97,7 @@ export class SearchEngine extends Component {
             stock: item.symbol,
             isLoading: true,
             description: item.description,
+            delta: null,
             percentage: null,
             initialQuote: null,
             quote: null,
@@ -121,10 +108,10 @@ export class SearchEngine extends Component {
         })
     }
 
-    renderStockQuote(stock, quote) {
+    renderStockQuote(stock, initialQuote, quote) {
         if (stock !== '') {
             finnhubClient.quote(stock, (error, data, response) => { 
-                if (response.statusCode === 429) {
+                if (response.statusCode !== 200) {
                     this.setState({
                         isRequestSuccessful: false,
                         isLoading: false,
@@ -153,8 +140,14 @@ export class SearchEngine extends Component {
                             quoteColor: 'text-danger'
                         }); 
                     }
-                    // Compute percentage change of current quote from the initial quote
-                    this.setState({ percentage: ((data.c - quote) / quote).toFixed(2) });
+                    ///////////
+                    // Compute and round to at most 2 decimal places
+                    // - delta between current quote and the initial quote
+                    // - percentage change of current quote from the initial quote
+                    this.setState({ 
+                        delta: Math.round(((data.c - initialQuote) + Number.EPSILON) * 100) / 100,
+                        percentage: Math.round((((data.c - initialQuote) / initialQuote) + Number.EPSILON) * 100) / 100
+                    });
                 }
             });  
         }
@@ -163,21 +156,21 @@ export class SearchEngine extends Component {
     componentDidMount() {
         // Get the real-time stock quote every 5 seconds
         this.intervalId = setInterval(() => {
-            this.renderStockQuote(this.state.stock, this.state.quote);
+            this.renderStockQuote(this.state.stock, this.state.initialQuote, this.state.quote);
         }, 5000);
-        this.renderStockQuote(this.state.stock, this.state.quote);
+        this.renderStockQuote(this.state.stock, this.state.initialQuote, this.state.quote);
     }
 
     componentWillUnmount() {
         clearInterval(this.intervalId);
     }
 
-    render() {
+    render() {    
         return ( 
             <React.Fragment>
                 <div  
                     className='col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 searchbox-position'
-                    onFocus={(event) => this.handleOnFocus(event)}
+                    onFocus={this.handleOnFocus}
                     onKeyDown={(event) => this.handleOnKeyDown(event)}
                     onBlur={(event) => this.handleOnBlur(event)}
                 >
@@ -194,18 +187,18 @@ export class SearchEngine extends Component {
                         onSelect={(item) => this.handleOnSelect(item)}
                         maxResults={this.state.maxResults}
                         placeholder={
-                            window.innerWidth >= 768
+                            window.innerWidth >= 500
                             ?
-                            `Get the real-time US stock price you desire amongst the ${this.props.stockExchangeData.length.toLocaleString('en-US')} available`
+                            `Get real-time US stock prices amongst the ${this.props.stockExchangeData.length.toLocaleString('en-US')} available`
                             :
-                            `Get one of the ${this.props.stockExchangeData.length.toLocaleString('en-US')} real-time US stock prices available`
+                            `${this.props.stockExchangeData.length.toLocaleString('en-US')} stock prices`
                         }
                         styling={
                             {
                                 boxShadow: '#5350ffcc 0px 1px 6px 0px',
                                 iconColor: '#5350ffcc',
                                 fontSize: '1rem',
-                                fontFamily: 'Calibri'
+                                fontFamily: "'Lato', sans-serif"
                             }
                         }
                     />
@@ -217,6 +210,7 @@ export class SearchEngine extends Component {
                     description={this.state.description}
                     quote={this.state.quote}
                     quoteColor={this.state.quoteColor} 
+                    delta={this.state.delta}
                     percentage={this.state.percentage}
                 />
                 <Error 

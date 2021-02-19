@@ -8,6 +8,11 @@ body {
   height: 100vh;
 }
 
+:root {
+  --sk-color: #dc50ffcc;
+  --sk-size: 2.5rem;
+}
+
 .jumbotron {
   height: 24%;
   padding: 4.35% 0;
@@ -16,12 +21,17 @@ body {
   color: floralwhite;
 }
 
-.font-header {
-  font-family: 'Lato', sans-serif;
-  font-weight: 100;
+.font-header_1 {
+  font-family: 'Brygada 1918', serif;
+  font-weight: 700;
 }
 
-.container {
+.font-header_2 {
+  font-family: 'Brygada 1918', serif;
+  font-weight: 400;
+}
+
+.main {
   height: 52%;
 }
 
@@ -31,58 +41,11 @@ body {
   padding: 4.5% 0;
 }
 
-.hide {
-  display: none;
-}
-
-.searchbox-position {
-  padding: 0rem 5.75rem;
-}
-
-.title-size {
-  font-size: 1rem;
-}
-
-.percentage-size {
-  font-size: 1rem;
-}
-
-.quote-size {
-  font-size: 2rem;
-}
-
-.footer{
-  height: 24%;
-  background: linear-gradient(to bottom right, #dc50ffcc, #5350ffcc);
-  margin: 0 auto;
-  padding: 4.2% 0;
-}
-
-.btn-third-dimension {
-  box-shadow: 2px 2px 0 2px #5350ffcc;
-  transition: transform 0.2s ease-in;
-}
-
-.btn-third-dimension:hover {
-  box-shadow: 0 0 0 #5350ffcc, inset 5px 5px 5px #5350ffcc;
-  transform: translate(4px, 4px);
-}
-
-.my-style {
-  color: #5350ffcc;
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-  .page-loading-sentence-position {
-    margin-left: 3.5rem;
+@media (min-width: 1200px) {
+  .searchbox-position {
+    padding: 0rem 5.75rem;
   }
 }
-
-/* @media (min-width: 576px) and (max-width: 767px) {
-  .page-loading-sentence-position {
-    font-size: 0.75rem;
-  }
-} */
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .searchbox-position {
@@ -96,14 +59,71 @@ body {
   }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .searchbox-position {
-    padding: 0rem 2rem;
+    padding: 0rem;
   }
 }
 
-@media screen and (max-width: 575px) {
-  .searchbox-position {
-    padding: 0rem;
+.placeholder-color::placeholder {
+  color: transparent;
+}
+
+.highlight-result {
+  color: #5350ffcc;
+}
+
+.title {
+  font-size: 1rem;
+}
+
+.quote-size {
+  font-size: 2rem;
+}
+
+.stats-size {
+  font-size: 1rem;
+}
+
+.footer {
+  height: 24%;
+  background: linear-gradient(to bottom right, #dc50ffcc, #5350ffcc);
+  margin: 0 auto;
+  padding: 4.2% 0;
+}
+
+.btn-third-dimension {
+  box-shadow: 0.125rem 0.125rem 0 0.125rem #5350ffcc;
+  transition: transform 0.2s ease-in;
+}
+
+.btn-third-dimension:hover {
+  box-shadow: 0 0 0 #5350ffcc, inset 0.3125rem 0.3125rem 0.3125rem #5350ffcc;
+  transform: translate(0.25rem, 0.25rem);
+}
+
+@media (min-height: 376px) and (max-height: 652px) {
+  .jumbotron {
+    height: 28%;
+  }
+  .footer {
+    height: 20%;
+  }
+}
+
+@media screen and (max-height: 375px) {
+  .jumbotron {
+    height: 26%;
+    padding: 0;
+  }
+  .main {
+    height: 60%;
+  }
+  .title {
+    margin-bottom: 0;
+  }
+  .footer {
+    height: 14%;
+    padding: 0.25rem;
   }
 }

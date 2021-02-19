@@ -1,24 +1,26 @@
 import React from 'react';
 import { Spinner } from 'reactstrap';
 
-export const Loading = ({ isPageLoading, dotsAnimation, isLoading }) => {
+export const Loading = ({ isPageLoading, isLoading }) => {
     if (isPageLoading) {            
         return (
-            <div className='col-12 text-primary'>
-                <div className='col-12 text-center'>
-                    <Spinner color='primary' />
+            <div className='col-12'>
+                <div className="sk-wave sk-center">
+                    <div className="sk-wave-rect"></div>
+                    <div className="sk-wave-rect"></div>
+                    <div className="sk-wave-rect"></div>
+                    <div className="sk-wave-rect"></div>
+                    <div className="sk-wave-rect"></div>
                 </div>
-                <div className='col-12 pt-3'>
-                    <span className='col-10 col-lg-8 d-inline-block text-right ml-xl-4 pr-0 page-loading-sentence-position'>
-                        {
-                            window.innerWidth >= 768
-                            ?
-                            `Please wait while I am collecting data from the US Stock Exchanges`
-                            :
-                            `Collecting data from the US Stock Exchanges`
-                        }
-                    </span><span>{dotsAnimation}</span>
-                </div>
+                <span className='d-block text-center text-primary pt-3 pb-0'>
+                    {
+                        window.innerWidth >= 768
+                        ?
+                        'Please wait while I am collecting data from the Stock Exchanges'
+                        :
+                        'Collecting data from the US Stock Exchanges'
+                    }
+                </span>
             </div>
         );
     }

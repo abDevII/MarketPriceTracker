@@ -1,0 +1,439 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "c:\\Users\\arthu\\Documents\\Software Engineer\\MyReactProjects\\stock-price-tracker",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2021-02-17 12:53:03",
+            "filesum": 59,
+            "codesum": 39174,
+            "commentsum": 226,
+            "blanksum": 4761,
+            "statistics": {
+                ".js": {
+                    "code": 603,
+                    "comment": 26,
+                    "blank": 52
+                },
+                ".css": {
+                    "code": 110,
+                    "comment": 17,
+                    "blank": 24
+                },
+                ".md": {
+                    "code": 38,
+                    "comment": 12,
+                    "blank": 32
+                },
+                ".html": {
+                    "code": 25,
+                    "comment": 23,
+                    "blank": 0
+                },
+                ".txt": {
+                    "code": 6,
+                    "comment": 77,
+                    "blank": 10
+                },
+                ".json": {
+                    "code": 16762,
+                    "comment": 0,
+                    "blank": 4
+                },
+                ".svg": {
+                    "code": 1441,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".map": {
+                    "code": 6,
+                    "comment": 0,
+                    "blank": 0
+                },
+                "": {
+                    "code": 22,
+                    "comment": 1,
+                    "blank": 6
+                },
+                ".lock": {
+                    "code": 10043,
+                    "comment": 35,
+                    "blank": 2311
+                },
+                ".log": {
+                    "code": 10118,
+                    "comment": 35,
+                    "blank": 2322
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": ".env"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": ".eslintcache"
+                },
+                {
+                    "blank": 6,
+                    "code": 20,
+                    "comment": 1,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 1,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "build\\asset-manifest.json"
+                },
+                {
+                    "filename": "build\\favicon.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\index.html"
+                },
+                {
+                    "filename": "build\\logo192.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build\\logo512.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "build\\manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "build\\robots.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 11,
+                    "filename": "build\\static\\css\\2.5ea0b1c5.chunk.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\css\\2.5ea0b1c5.chunk.css.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "build\\static\\css\\main.8bc0578e.chunk.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\css\\main.8bc0578e.chunk.css.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "build\\static\\js\\2.8b6de653.chunk.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 0,
+                    "comment": 75,
+                    "filename": "build\\static\\js\\2.8b6de653.chunk.js.LICENSE.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\2.8b6de653.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "build\\static\\js\\3.d46f57e6.chunk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\3.d46f57e6.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "build\\static\\js\\main.952e8913.chunk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\main.952e8913.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "build\\static\\js\\runtime-main.eedafa45.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\runtime-main.eedafa45.js.map"
+                },
+                {
+                    "filename": "build\\static\\media\\fontawesome-webfont.1e59d233.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build\\static\\media\\fontawesome-webfont.20fd1704.woff2",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build\\static\\media\\fontawesome-webfont.8b43027f.eot",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1441,
+                    "comment": 0,
+                    "filename": "build\\static\\media\\fontawesome-webfont.c1e38fd9.svg"
+                },
+                {
+                    "filename": "build\\static\\media\\fontawesome-webfont.f691f37e.woff",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 16630,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 3,
+                    "code": 57,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "filename": "public\\bar-chart.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\favicon.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 24,
+                    "comment": 23,
+                    "filename": "public\\index.html"
+                },
+                {
+                    "filename": "public\\logo192.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\logo512.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "public\\manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "public\\robots.txt"
+                },
+                {
+                    "blank": 32,
+                    "code": 38,
+                    "comment": 12,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 23,
+                    "code": 95,
+                    "comment": 5,
+                    "filename": "src\\App.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\App.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\App.test.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 58,
+                    "comment": 1,
+                    "filename": "src\\components\\BodyComponent.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\components\\ErrorComponent.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 58,
+                    "comment": 0,
+                    "filename": "src\\components\\FooterComponent.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "src\\components\\HeaderComponent.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\LoadedPageComponent.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 42,
+                    "comment": 0,
+                    "filename": "src\\components\\LoadingComponent.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\LoadingPageComponent.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\MainComponent.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "src\\components\\PriceStatsComponent.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 207,
+                    "comment": 8,
+                    "filename": "src\\components\\SearchEngineComponent.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 70,
+                    "comment": 0,
+                    "filename": "src\\components\\StockLoaderComponent.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 4,
+                    "comment": 4,
+                    "filename": "src\\FinnhubAPI.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\index.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 3,
+                    "filename": "src\\index.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\reportWebVitals.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 4,
+                    "filename": "src\\setupTests.js"
+                },
+                {
+                    "blank": 2322,
+                    "code": 10118,
+                    "comment": 35,
+                    "filename": "yarn-error.log"
+                },
+                {
+                    "blank": 2311,
+                    "code": 10043,
+                    "comment": 35,
+                    "filename": "yarn.lock"
+                }
+            ]
+        }
+    ]
+}

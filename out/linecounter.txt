@@ -1,0 +1,86 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2021-02-17 12:53:03
+count workspace : c:\Users\arthu\Documents\Software Engineer\MyReactProjects\stock-price-tracker
+total files : 59
+total code lines : 39174
+total comment lines : 226
+total blank lines : 4761
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |            .js|            603|             26|             52|    1.5|
+   |           .css|            110|             17|             24|   0.28|
+   |            .md|             38|             12|             32|  0.097|
+   |          .html|             25|             23|              0|  0.064|
+   |           .txt|              6|             77|             10|  0.015|
+   |          .json|          16762|              0|              4|     43|
+   |           .svg|           1441|              0|              0|    3.7|
+   |           .map|              6|              0|              0|  0.015|
+   |               |             22|              1|              6|  0.056|
+   |          .lock|          10043|             35|           2311|     26|
+   |           .log|          10118|             35|           2322|     26|
+   -------------------------------------------------------------------------
+.env, code is 1, comment is 0, blank is 0.
+.eslintcache, code is 1, comment is 0, blank is 0.
+.gitignore, code is 20, comment is 1, blank is 6.
+build\asset-manifest.json, code is 25, comment is 0, blank is 1.
+build\favicon.ico, it is a binary file.
+build\index.html, code is 1, comment is 0, blank is 0.
+build\logo192.png, it is a binary file.
+build\logo512.png, it is a binary file.
+build\manifest.json, code is 25, comment is 0, blank is 0.
+build\robots.txt, code is 3, comment is 1, blank is 0.
+build\static\css\2.5ea0b1c5.chunk.css, code is 2, comment is 11, blank is 0.
+build\static\css\2.5ea0b1c5.chunk.css.map, code is 1, comment is 0, blank is 0.
+build\static\css\main.8bc0578e.chunk.css, code is 1, comment is 1, blank is 0.
+build\static\css\main.8bc0578e.chunk.css.map, code is 1, comment is 0, blank is 0.
+build\static\js\2.8b6de653.chunk.js, code is 1, comment is 3, blank is 0.
+build\static\js\2.8b6de653.chunk.js.LICENSE.txt, code is 0, comment is 75, blank is 10.
+build\static\js\2.8b6de653.chunk.js.map, code is 1, comment is 0, blank is 0.
+build\static\js\3.d46f57e6.chunk.js, code is 1, comment is 1, blank is 0.
+build\static\js\3.d46f57e6.chunk.js.map, code is 1, comment is 0, blank is 0.
+build\static\js\main.952e8913.chunk.js, code is 1, comment is 1, blank is 0.
+build\static\js\main.952e8913.chunk.js.map, code is 1, comment is 0, blank is 0.
+build\static\js\runtime-main.eedafa45.js, code is 1, comment is 1, blank is 0.
+build\static\js\runtime-main.eedafa45.js.map, code is 1, comment is 0, blank is 0.
+build\static\media\fontawesome-webfont.1e59d233.ttf, it is a binary file.
+build\static\media\fontawesome-webfont.20fd1704.woff2, it is a binary file.
+build\static\media\fontawesome-webfont.8b43027f.eot, it is a binary file.
+build\static\media\fontawesome-webfont.c1e38fd9.svg, code is 1441, comment is 0, blank is 0.
+build\static\media\fontawesome-webfont.f691f37e.woff, it is a binary file.
+package-lock.json, code is 16630, comment is 0, blank is 0.
+package.json, code is 57, comment is 0, blank is 3.
+public\bar-chart.png, it is a binary file.
+public\favicon.ico, it is a binary file.
+public\index.html, code is 24, comment is 23, blank is 0.
+public\logo192.png, it is a binary file.
+public\logo512.png, it is a binary file.
+public\manifest.json, code is 25, comment is 0, blank is 0.
+public\robots.txt, code is 3, comment is 1, blank is 0.
+README.md, code is 38, comment is 12, blank is 32.
+src\App.css, code is 95, comment is 5, blank is 23.
+src\App.js, code is 8, comment is 0, blank is 1.
+src\App.test.js, code is 7, comment is 0, blank is 1.
+src\components\BodyComponent.js, code is 58, comment is 1, blank is 8.
+src\components\ErrorComponent.js, code is 19, comment is 0, blank is 1.
+src\components\FooterComponent.js, code is 58, comment is 0, blank is 1.
+src\components\HeaderComponent.js, code is 16, comment is 0, blank is 1.
+src\components\LoadedPageComponent.js, code is 15, comment is 0, blank is 1.
+src\components\LoadingComponent.js, code is 42, comment is 0, blank is 3.
+src\components\LoadingPageComponent.js, code is 15, comment is 0, blank is 1.
+src\components\MainComponent.js, code is 15, comment is 0, blank is 1.
+src\components\PriceStatsComponent.js, code is 36, comment is 0, blank is 1.
+src\components\SearchEngineComponent.js, code is 207, comment is 8, blank is 16.
+src\components\StockLoaderComponent.js, code is 70, comment is 0, blank is 12.
+src\FinnhubAPI.js, code is 4, comment is 4, blank is 1.
+src\index.css, code is 12, comment is 0, blank is 1.
+src\index.js, code is 16, comment is 3, blank is 2.
+src\reportWebVitals.js, code is 12, comment is 0, blank is 1.
+src\setupTests.js, code is 1, comment is 4, blank is 0.
+yarn-error.log, code is 10118, comment is 35, blank is 2322.
+yarn.lock, code is 10043, comment is 35, blank is 2311.
+===============================================================================

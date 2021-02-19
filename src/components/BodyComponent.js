@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
+import { finnhubClient } from '../FinnhubAPI.js';
 import { Error } from './ErrorComponent';
 import { LoadingPage } from './LoadingPageComponent';
 import { LoadedPage } from './LoadedPageComponent';
-
-///////////////////////////////////
-// Requirements to use Finnhub API 
-// Finnhub API allows us to get real-time quote data for US stocks
-const finnhub = require('finnhub');
- 
-const api_key = finnhub.ApiClient.instance.authentications['api_key'];
-// Hide the API key
-api_key.apiKey = process.env.REACT_APP_FINNHUB_API_KEY;
-const finnhubClient = new finnhub.DefaultApi();
 
 export class Body extends Component {
      
@@ -21,8 +12,7 @@ export class Body extends Component {
         this.state = {
             isPageLoading: true,
             stockExchangeData: [],
-            isRequestSuccessful: true,
-            dots: 1
+            isRequestSuccessful: true
         };
 
         this.updateStockExchangeData = this.updateStockExchangeData.bind(this);
@@ -30,15 +20,20 @@ export class Body extends Component {
  
     updateStockExchangeData() {
         finnhubClient.stockSymbols('US', (error, data, response) => {
-            if (response.statusCode === 429) { 
+            console.log(response);
+            if (response.statusCode !== 200) { 
                 this.setState({
                     isRequestSuccessful: false,
                     isPageLoading: false
                 });
             }
             else {
+                const dataWithIds = data.map((item, idx) => ({
+                    ...item,
+                    id: item.description
+                  }))
                 this.setState({
-                    stockExchangeData: data,
+                    stockExchangeData: dataWithIds,
                     isPageLoading: false
                 });
             }
@@ -48,11 +43,6 @@ export class Body extends Component {
     componentDidMount() {
         // Get the US Stock Exchange data as soon as everything else have been loaded
         this.updateStockExchangeData();
-
-        // Add up to 3 dots to the message while loading Stock Exchange data
-        this.intervalId = setInterval(() => {
-            this.setState({ dots: this.state.dots === 3 ? 0 : this.state.dots + 1 });
-        }, 300);
     }    
                      
     componentWillUnmount() {
@@ -60,11 +50,8 @@ export class Body extends Component {
     }
 
     render() {          
-        
-        let dotsAnimation = this.state.dots === 0 ? '' : ' .'.repeat(this.state.dots);
-
         return (
-            <div className='container'>
+            <div className='container main'>
                 <Error 
                     isRequestSuccessful={this.state.isRequestSuccessful}
                     isLoading={this.state.isPageLoading}
@@ -73,7 +60,6 @@ export class Body extends Component {
                 <LoadingPage 
                     isRequestSuccessful={this.state.isRequestSuccessful}
                     isPageLoading={this.state.isPageLoading}
-                    dotsAnimation={dotsAnimation} 
                 />
                 <LoadedPage 
                     isRequestSuccessful={this.state.isRequestSuccessful}

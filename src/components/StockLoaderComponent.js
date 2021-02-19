@@ -1,9 +1,9 @@
 import React from 'react';
 import { Loading } from './LoadingComponent';
 import NumberFormat from 'react-number-format';
-import { Percentage } from './PercentageComponent';
+import { PriceStats } from './PriceStatsComponent';
 
-export const StockLoader = ({isLoading, isInputFocused, isSearching, description, quote, quoteColor, percentage}) => {
+export const StockLoader = ({isLoading, isInputFocused, isSearching, description, quote, quoteColor, delta, percentage}) => {
     return (
         <div className='col-12 text-center'>
             <Loading 
@@ -14,12 +14,13 @@ export const StockLoader = ({isLoading, isInputFocused, isSearching, description
                         && 
                         isSearching 
                         ? 
-                        'hide' 
+                        'd-none' 
                         : 
                         ''
                     }
                 `}
             />
+            
             <div className={`
                 ${
                     isLoading 
@@ -28,20 +29,26 @@ export const StockLoader = ({isLoading, isInputFocused, isSearching, description
                     || 
                     (isInputFocused && isSearching) 
                     ? 
-                    'hide' 
+                    'd-none' 
                     : 
                     ''
                 }
             `}>
-                <p className='text-primary title-size'> {description} </p>
+                <p className='text-primary title'> {description} </p>
+
                 <NumberFormat 
                     value={quote} 
                     displayType={'text'} 
                     thousandSeparator={true} 
+                    decimalScale={2}
                     prefix={'$'} 
-                    className={`${quoteColor} quote-size `}
+                    className={`${quoteColor} quote-size`}
                 />
-                <Percentage percentage={percentage} />
+
+                <PriceStats
+                    delta={delta} 
+                    percentage={percentage} 
+                />
             </div>
         </div>
     );
